@@ -1,4 +1,6 @@
-html, body, .root {
+html,
+body,
+.root {
   height: 100%;
 }
 
@@ -6,7 +8,8 @@ body {
   line-height: 1.5;
 }
 
-body, .app {
+body,
+.app {
   background: white;
 }
 
@@ -14,14 +17,30 @@ body, .app {
 
 .list-books-title {
   padding: 10px 0;
-  background: #2e7c31;
+  background: #251e17;
   text-align: center;
 }
-
-.list-books-title h1 {
+.list-books-title span{
+  font-size: 21pt;
   font-weight: 400;
+  
+  margin-left: 13px;
+}
+
+.list-books-title h1,
+.list-books-title h2 {
+  font-size: 45pt;
+  font-family: 'Tangerine', cursive;
+  text-align: center;
   margin: 0;
-  color: white;
+  background: url("./img/gold.png") center;
+  background-size: contain;
+  margin: auto;
+  width: 75vw;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 1px 1px 8px #ffffff0d;
 }
 
 .list-books-content {
@@ -63,7 +82,7 @@ body, .app {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 28px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   font-size: 0;
   outline: 0;
 }
@@ -82,16 +101,17 @@ body, .app {
   left: 0;
   z-index: 5;
   display: flex;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 0 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 0 6px rgba(0, 0, 0, 0.23);
 }
+
 .info-books-bar {
-background-color: #eee;
+  background-color: #eee;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 5;
   display: flex;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 0 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 0 6px rgba(0, 0, 0, 0.23);
 }
 
 .search-books-input-wrapper {
@@ -121,6 +141,7 @@ background-color: #eee;
   border: none;
   outline: none;
 }
+
 .close-info {
   display: block;
   top: 20px;
@@ -135,25 +156,31 @@ background-color: #eee;
   border: none;
   outline: none;
 }
+
 #bookinfo {
   padding: 15px;
 }
+
 .booktitle {
   margin-top: 0;
   margin-bottom: 21px;
 }
+
 .bookcover {
   float: left;
   margin-right: 12px;
 }
+
 .bookinfo_sectionwrap {
   margin-bottom: 2px;
   color: #777;
 }
+
 #synopsis {
   padding-right: 80px;
   padding-left: 141px;
 }
+
 button:active {
   border: red;
   outline: none;
@@ -210,12 +237,12 @@ button:active {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #60ac5d;
+  background: #5d3f22;
   background-image: url('./icons/arrow-drop-down.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .book-shelf-changer select {
@@ -228,7 +255,7 @@ button:active {
 /* book cover */
 
 .book-cover {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   background: #eee;
 }
 
@@ -237,60 +264,78 @@ button:active {
   text-align: center;
   font-size: 0.8em;
 }
-.read-now{
+
+.read-now {
   color: #2196f3;
   text-underline-position: under;
   text-underline-offset: 1px;
 }
-.book-top  .book-cover-overlay{
+
+.book-top .book-cover-overlay {
   width: 128px;
-    height: 192px;
-    background-color: none;
-    position: absolute;
-    top: 8px;
-    left: 0;
-    background-color: rgb(0 0 0 / 90%);
-    transition: all 0.3s ease-out;
-    opacity: 0;
+  height: 192px;
+  background-color: none;
+  position: absolute;
+  top: 8px;
+  left: 0;
+  background-color: rgb(0 0 0 / 90%);
+  transition: all 0.3s ease-out;
+  opacity: 0;
 }
-.book-top a:hover .book-cover-overlay{
 
-    opacity: 1;
+.book-top a:hover .book-cover-overlay {
+
+  opacity: 1;
 
 }
-.book-top a .book-cover-overlay span{
-color: #dedede;
+
+.book-top a .book-cover-overlay span {
+  color: #dedede;
   margin: 0;
   position: absolute;
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   left: 50%;
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
   text-transform: uppercase;
   font-weight: bold;
 
 }
+
 /* The snackbar - position it at the bottom and in the middle of the screen */
 #snackbar {
-  visibility: hidden; /* Hidden by default. Visible on click */
-  min-width: 250px; /* Set a default minimum width */
-  margin-left: -125px; /* Divide value of min-width by 2 */
-  background-color: #333; /* Black background color */
-  color: #fff; /* White text color */
-  text-align: center; /* Centered text */
-  border-radius: 2px; /* Rounded borders */
-  padding: 16px; /* Padding */
-  position: fixed; /* Sit on top of the screen */
-  z-index: 1; /* Add a z-index if needed */
-  left: 50%; /* Center the snackbar */
-  bottom: 30px; /* 30px from the bottom */
+  visibility: hidden;
+  /* Hidden by default. Visible on click */
+  min-width: 250px;
+  /* Set a default minimum width */
+  margin-left: -125px;
+  /* Divide value of min-width by 2 */
+  background-color: #333;
+  /* Black background color */
+  color: #fff;
+  /* White text color */
+  text-align: center;
+  /* Centered text */
+  border-radius: 2px;
+  /* Rounded borders */
+  padding: 16px;
+  /* Padding */
+  position: fixed;
+  /* Sit on top of the screen */
+  z-index: 1;
+  /* Add a z-index if needed */
+  left: 50%;
+  /* Center the snackbar */
+  bottom: 30px;
+  /* 30px from the bottom */
 }
 
 /* Show the snackbar when clicking on a button (class added with JavaScript) */
 #snackbar.show {
-  visibility: visible; /* Show the snackbar */
+  visibility: visible;
+  /* Show the snackbar */
   /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
   However, delay the fade out process for 2.5 seconds */
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
@@ -299,37 +344,69 @@ color: #dedede;
 
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 
 @keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
-a{
+
+a {
   color: #2196f3;
 
 }
+
 .lds-dual-ring,
 .lds-dual-ring:after {
   box-sizing: border-box;
 }
+
 .lds-dual-ring {
   display: inline-block;
   width: 80px;
   height: 80px;
 }
+
 .lds-dual-ring:after {
   content: " ";
   display: block;
@@ -341,10 +418,12 @@ a{
   border-color: currentColor transparent currentColor transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
+
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
