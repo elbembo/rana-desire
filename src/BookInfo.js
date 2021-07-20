@@ -27,7 +27,7 @@ class BookInfo extends React.Component {
 }
 function Child(props) {
     if (!props.book.authors) {
-        return <div><div className="lds-dual-ring"></div></div>
+        return <div><div className="lds-dual-ring" style={{display:"block",margin:"0 auto"}}></div></div>
     }
     /*
     * stars() return with array 

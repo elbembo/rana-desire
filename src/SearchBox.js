@@ -16,12 +16,15 @@ export class SearchBox extends Component {
 
     handleSearchChange = (e) => {
         (e.target.value !== '') && BooksAPI.search(e.target.value).then(books => {
-            (books.length > 0) ? this.setState({
-                books
-            }) : this.props.noti(`No result for "${e.target.value}" , try some thing else` )
+            !books.error ?
+                this.setState({
+                    books
+                }) :
+                this.props.noti(`No result for "${e.target.value}" , try some thing else`)
         })
         this.props.sraechTermUpdate(e.target.value)
     }
+
     render() {
         return (
             <div className="search-books">
@@ -36,9 +39,16 @@ export class SearchBox extends Component {
                 <div className="search-books-results">
                     <ol className="books-grid">
                         {
-                            this.state.books.map(book => (
-                                <li key={book.id}><BookCard book={book} onChange={this.props.onChange} /></li>
-                            ))
+                            this.state.books.map(book => {
+                                this.props.currentBooks.filter((b) => {
+                                    return (b.id === book.id) ? book.shelf = b.shelf : ''
+                                })
+                                return (
+                                    <li key={book.id}>
+                                        <BookCard book={book} onChange={this.props.onChange} searchOn={true/* BookCard used by many othe component we pass thi prop only in search component*/} />
+                                    </li>
+                                )
+                            })
 
                         }
                     </ol>
