@@ -18,7 +18,7 @@ export class BookCard extends Component {
             <div className="book">
                 <div className="book-top">
                     <Link to={`/info/${this.props.book.id}`} >
-                        <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${this.props.book.imageLinks.thumbnail})` }}></div>
+                        <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${this.props.book.imageLinks.thumbnail.replace(/^http:\/\//i, 'https://')})` }}></div>
                         <div className="book-cover-overlay" ><span>More&nbsp;info</span></div>
                     </Link>
                     <ShelfBotton onChange={this.props.onChange} book={this.props.book} />

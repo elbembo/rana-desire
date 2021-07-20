@@ -35,7 +35,7 @@ function Child(props) {
     * of the book , "on" if <= averageRating
     * "off" if else . then we will call the function
     * to render star element and set class on/off
-    * */
+    */
     const stars = () => {
         let starts = []
         let ret = props.book.averageRating;
@@ -54,7 +54,12 @@ function Child(props) {
             <div id="bookinfo">
                 <h1 className="booktitle"><span ><span dir="ltr">{props.book.title}</span></span><span className="subtitle"></span></h1>
                 <h3 className="booktitle"><span ><span dir="ltr">{props.book.subtitle}</span></span><span className="subtitle"></span></h3>
-                <div className="bookcover"><img src={props.book.imageLinks.thumbnail} alt="Front Cover" title="Front Cover" width="128" border="1" id="summary-frontcover" ></img></div>
+                <div className="bookcover"><img src={
+                    /*
+                    * use replace function to avoid mixed content warnning from the browser 
+                    */
+                    props.book.imageLinks.thumbnail.replace(/^http:\/\//i, 'https://')
+                    } alt="Front Cover" title="Front Cover" width="128" border="1" id="summary-frontcover" ></img></div>
                 <div className="bookinfo_sectionwrap">
                     <div>
                         {
