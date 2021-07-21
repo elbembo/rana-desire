@@ -8,9 +8,8 @@ import BookShelf from './BookShelf'
 import BookInfo from './BookInfo'
 
 class BooksApp extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+
+    state = {
       isLoading: false,
       myBooks: [],
       term: '',
@@ -20,7 +19,7 @@ class BooksApp extends React.Component {
       }
     }
 
-  }
+  
   /*
   * refreshHome get all user's book to home screen
   */

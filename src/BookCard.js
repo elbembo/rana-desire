@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
+import PropTypes from 'prop-types';
 import ShelfBotton from './ShelfBotton'
 
 export class BookCard extends Component {
@@ -75,5 +75,8 @@ background : this.shelfStylr[this.props.book.shelf].color
         )
     }
 }
-
+BookCard.propTypes = {
+    book: PropTypes.object,
+    onChange: PropTypes.func
+}
 export default BookCard

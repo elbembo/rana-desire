@@ -1,12 +1,11 @@
 import React from 'react'
 import * as BooksAPI from './BooksAPI'
 class BookInfo extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+
+        state = {
             book: []
         }
-    }
+    
     componentDidMount() {
         BooksAPI.get(this.props.match.params.id).then(book => {
             this.setState({ book })

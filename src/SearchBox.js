@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import BookCard from './BookCard'
 import * as BooksAPI from './BooksAPI'
+import PropTypes from 'prop-types'
+
 export class SearchBox extends Component {
     state = {
         books: [],
@@ -15,13 +17,17 @@ export class SearchBox extends Component {
     }
 
     handleSearchChange = (e) => {
-        (e.target.value !== '') && BooksAPI.search(e.target.value).then(books => {
-            !books.error ?
+        console.log(e.target.value);
+        (e.target.value !== '') ? BooksAPI.search(e.target.value).then(books => {
+            if (!books.error) {
                 this.setState({
                     books
-                }) :
+                })
+            } else {
+                this.setState({ books: [] })
                 this.props.noti(`No result for "${e.target.value}" , try some thing else`)
-        })
+            }
+        }) : this.setState({ books: [] })
         this.props.sraechTermUpdate(e.target.value)
     }
 
@@ -31,9 +37,7 @@ export class SearchBox extends Component {
                 <div className="search-books-bar">
                     <Link to='/'><button className="close-search">Close</button></Link>
                     <div className="search-books-input-wrapper">
-
                         <input type="text" placeholder="Search by title or author" value={this.props.currentTerm} onChange={this.handleSearchChange} />
-
                     </div>
                 </div>
                 <div className="search-books-results">
@@ -49,7 +53,6 @@ export class SearchBox extends Component {
                                     </li>
                                 )
                             })
-
                         }
                     </ol>
                 </div>
@@ -57,5 +60,11 @@ export class SearchBox extends Component {
         )
     }
 }
-
+SearchBox.propTypes = {
+    currentBooks: PropTypes.array,
+    noti: PropTypes.func,
+    currentTerm: PropTypes.string,
+    sraechTermUpdate: PropTypes.func,
+    onChange: PropTypes.func
+}
 export default SearchBox
